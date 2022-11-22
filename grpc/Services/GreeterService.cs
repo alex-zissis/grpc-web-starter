@@ -1,11 +1,9 @@
-using System;
-using System.Threading;
 using Grpc.Core;
-using dev.zico.protobuf;
+using ZicoDev.Protobuf;
 
 namespace grpc.Services;
 
-public class GreeterService : dev.zico.protobuf.Greeter.GreeterBase
+public class GreeterService : Greeter.GreeterBase
 {
     private readonly ILogger<GreeterService> _logger;
     public GreeterService(ILogger<GreeterService> logger)

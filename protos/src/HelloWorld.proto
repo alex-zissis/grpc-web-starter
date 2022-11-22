@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "dev.zico.protobuf";
+option csharp_namespace = "ZicoDev.Protobuf";
 package dev.zico.protobuf;
 
 service Greeter {
