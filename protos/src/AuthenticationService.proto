@@ -1,0 +1,62 @@
+syntax = "proto3";
+option csharp_namespace = "ZicoDev.Protobuf";
+
+package dev.zico.protobuf;
+
+import "Identifiers.proto";
+
+service AuthenticationService {
+    rpc LoginWithoutSpecifyingAccount(LoginWithoutSpecifyingAccountRequest) returns (LoginWithoutSpecifyingAccountReply);
+    rpc LoginToAccount(LoginToAccountRequest) returns (LoginToAccountReply);
+}
+
+message LoginWithoutSpecifyingAccountRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginWithoutSpecifyingAccountReply {
+    LoginStatus status = 1;
+}
+
+message LoginToAccountRequest {
+    AccountId account_id = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message LoginToAccountReply {
+    LoginStatus status = 1;
+}
+
+message LoginStatus {
+    oneof login_status_oneof {
+        SuccessfulLogin successful_login = 1;
+        ChallengedLogin challenged_login = 2;
+        FailedLogin failed_login = 3;
+    }
+
+    message SuccessfulLogin {
+        repeated AccountId linked_accounts = 1;
+    }
+
+    message ChallengedLogin {
+        ChallengedLoginType challenge_type = 1;
+        string nonce = 2;
+
+        enum ChallengedLoginType {
+            UNKNOWN = 0;
+            TWO_FACTOR_AUTHENTICATION = 1;
+            ONE_TIME_PASSWORD = 2;
+        }
+    }
+
+    message FailedLogin {
+        FailedLoginReason reason = 1;
+
+        enum FailedLoginReason {
+            UNKNOWN = 0;
+            BAD_AUTHENTICATION = 1;
+        }
+    }
+}

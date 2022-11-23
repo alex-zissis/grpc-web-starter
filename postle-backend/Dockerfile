@@ -4,6 +4,7 @@ WORKDIR /source
 
 # copy csproj and restore as distinct layers
 RUN mkdir postle-backend
+COPY Postle.sln .
 COPY postle-backend/Postle.Web.csproj postle-backend/Postle.Web.csproj
 
 # copy the protos
@@ -12,6 +13,7 @@ COPY ./protos/generated/csharp protos/generated/csharp
 
 # copy everything else and build app
 COPY . .
+RUN dotnet restore
 RUN dotnet publish postle-backend/Postle.Web.csproj -c release -o /app
 
 # final stage/image

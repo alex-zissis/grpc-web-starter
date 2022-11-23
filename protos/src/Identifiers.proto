@@ -1,0 +1,15 @@
+syntax = "proto3";
+option csharp_namespace = "ZicoDev.Protobuf";
+package dev.zico.protobuf;
+
+message AccountId {
+    oneof account_id_oneof {
+        string id = 1;
+    }
+}
+
+message UserId {
+    oneof user_id_oneof {
+        string id = 1;
+    }
+}

@@ -12,4 +12,19 @@
     <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
   </ItemGroup>
 
+  <ItemGroup>
+<!--    <Content Include="..\..\src\AuthenticationService.proto">-->
+<!--      <Link>src\AuthenticationService.proto</Link>-->
+<!--    </Content>-->
+<!--    <Content Include="..\..\src\HelloWorld.proto">-->
+<!--      <Link>src\HelloWorld.proto</Link>-->
+<!--    </Content>-->
+<!--    <Content Include="..\..\src\Identifiers.proto">-->
+<!--      <Link>src\Identifiers.proto</Link>-->
+<!--    </Content>-->
+        <Content Include="..\..\src\*.proto">
+          <Link>src\*.proto</Link>
+        </Content>
+  </ItemGroup>
+
 </Project>
