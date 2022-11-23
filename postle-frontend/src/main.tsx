@@ -4,7 +4,7 @@ import App from "./App";
 import { GrpcWebProvider } from "./grpc";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <GrpcWebProvider address="http://localhost:8080">
       <App />

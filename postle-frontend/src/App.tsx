@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
-import { GreeterClient } from "dev.zico.protobuf/src/HelloWorldServiceClientPb";
-import { HelloRequest } from "dev.zico.protobuf/src/HelloWorld_pb";
+import { GreeterClient } from "@zicodev/protobuf/src/HelloWorldServiceClientPb";
+import { HelloRequest } from "@zicodev/protobuf/src/HelloWorld_pb";
 import { useGrpcClient } from "./grpc";
 import "./App.css";
 

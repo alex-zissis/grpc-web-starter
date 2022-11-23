@@ -4,6 +4,7 @@ ENV NODE_VERSION=18
 ENV DEBIAN_VERSION=11
 ENV DOTNET_VERSION=6.0
 ENV GRPC_WEB_VERSION=1.4.2
+ENV GRPC_CSHARP_VERSION=2.49.0
 
 # install dependencies
 RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
@@ -26,6 +27,6 @@ RUN dotnet restore generated/csharp/dev.zico.protobuf.csproj \
 COPY build.sh ./
 
 ENV PROTOC_GEN_TS_PATH="/proto/generated/js/node_modules/.bin/protoc-gen-ts"
-ENV PROTOC_GEN_CSHARP_PATH="/root/.nuget/packages/grpc.tools/2.49.0/tools/linux_x64/grpc_csharp_plugin"
+ENV PROTOC_GEN_CSHARP_PATH="/root/.nuget/packages/grpc.tools/${GRPC_CSHARP_VERSION}/tools/linux_x64/grpc_csharp_plugin"
 ENV PROTOC_GEN_WEB_PATH="/root/.bin/protoc-gen-grpc-web"
 RUN ./build.sh

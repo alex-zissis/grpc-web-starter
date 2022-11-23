@@ -1,5 +1,5 @@
 {
-  "name": "dev.zico.protobuf",
+  "name": "@zicodev/protobuf",
   "version": "0.0.1",
   "dependencies": {
     "google-protobuf": "^3.21.2",

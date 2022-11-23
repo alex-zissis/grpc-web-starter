@@ -329,6 +329,13 @@
     magic-string "^0.26.7"
     react-refresh "^0.14.0"
 
+"@zicodev/protobuf@../protos/generated/js":
+  version "0.0.1"
+  dependencies:
+    google-protobuf "^3.21.2"
+    grpc-web "^1.4.2"
+    ts-protoc-gen "^0.15.0"
+
 ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
@@ -388,13 +395,6 @@ debug@^4.1.0:
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
-
-dev.zico.protobuf@../protos/generated/js:
-  version "0.0.1"
-  dependencies:
-    google-protobuf "^3.21.2"
-    grpc-web "^1.4.2"
-    ts-protoc-gen "^0.15.0"
 
 electron-to-chromium@^1.4.251:
   version "1.4.284"

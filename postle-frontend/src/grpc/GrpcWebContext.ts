@@ -8,4 +8,3 @@ const GrpcWebContext = createContext<GrpcWebContextData>({address: ''});
 
 export {GrpcWebContext}
 export type {GrpcWebContextData};
-

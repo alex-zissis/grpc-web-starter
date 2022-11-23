@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "dev.zico.protobuf": "../protos/generated/js",
+    "@zicodev/protobuf": "../protos/generated/js",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

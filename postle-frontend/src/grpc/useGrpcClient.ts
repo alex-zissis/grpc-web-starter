@@ -1,4 +1,4 @@
-import { GreeterClient } from "dev.zico.protobuf/src/HelloWorldServiceClientPb";
+import { GreeterClient } from "@zicodev/protobuf/src/HelloWorldServiceClientPb";
 
 type GrpcServiceClient = typeof GreeterClient;
 
