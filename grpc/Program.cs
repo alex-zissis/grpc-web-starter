@@ -11,7 +11,7 @@ builder.Services.AddGrpc();
 builder.WebHost.ConfigureKestrel(options =>
 {
     // Setup a HTTP/2 endpoint without TLS.
-    options.ListenLocalhost(5287, o => o.Protocols =
+    options.ListenAnyIP(5287, o => o.Protocols =
         HttpProtocols.Http2);
 });
 

@@ -25,6 +25,6 @@ ADD ./etc/localhost.crt /etc
 ADD ./etc/localhost.key /etc
 
 ENTRYPOINT [ "/bin/sh", "-c", "exec /go/bin/grpcwebproxy \
-  --backend_addr=host.docker.internal:9090 \
+  --backend_addr=host.docker.internal:5287 \
   --run_tls_server=false \
-  --allow_all_origins " ]
+  --allow_all_origins" ]
