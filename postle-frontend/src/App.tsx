@@ -7,17 +7,17 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [message, setMessage] = useState<string>();
   const greeterClient = useGrpcClient(GreeterClient)
 
   useEffect(() => {
     const request = new HelloRequest().setName("Alex");
 
     greeterClient
-      .sayHello(request, {})
+      .sayHello(request, null)
       .then((reply) => {
-        console.log(reply.toObject().message);
-      })
-      .catch(console.error);
+        setMessage(reply.toObject().message);
+      });
   }, []);
 
   return (
@@ -30,7 +30,8 @@ function App() {
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
         </div>
-        <h1>Vite + React</h1>
+        <h1>Vite + React + GrpcWeb</h1>
+        <h3>{message}</h3>
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
             count is {count}

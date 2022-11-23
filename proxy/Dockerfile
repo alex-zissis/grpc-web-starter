@@ -4,6 +4,7 @@ RUN apk add --no-cache curl git ca-certificates && \
   rm -rf /var/lib/apt/lists/*
 
 ARG VERSION=0.14.0
+ARG PROXY_TARGET=host.docker.internal:5287
 
 WORKDIR /tmp
 
@@ -25,6 +26,6 @@ ADD ./etc/localhost.crt /etc
 ADD ./etc/localhost.key /etc
 
 ENTRYPOINT [ "/bin/sh", "-c", "exec /go/bin/grpcwebproxy \
-  --backend_addr=host.docker.internal:5287 \
+  --backend_addr=${PROXY_TARGET} \
   --run_tls_server=false \
   --allow_all_origins" ]

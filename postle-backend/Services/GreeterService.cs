@@ -1,7 +1,7 @@
 using Grpc.Core;
 using ZicoDev.Protobuf;
 
-namespace grpc.Services;
+namespace Postle.Web.Services;
 
 public class GreeterService : Greeter.GreeterBase
 {
@@ -13,7 +13,6 @@ public class GreeterService : Greeter.GreeterBase
 
     public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext serverCallContext)
     {
-        Console.WriteLine("processing");
         return Task.FromResult(new HelloReply
         {
             Message = "Hello " + request.Name

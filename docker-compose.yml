@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: postle-backend/Dockerfile
+  proxy:
+    build: ./proxy
+    environment:
+      - PROXY_TARGET=web:5287
+    ports:
+      - "8080:8080"

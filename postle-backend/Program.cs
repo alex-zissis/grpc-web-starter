@@ -1,4 +1,4 @@
-using grpc.Services;
+using Postle.Web.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
