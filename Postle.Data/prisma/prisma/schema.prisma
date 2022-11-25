@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  account_id String             @id @default(dbgenerated("generate_object_id()"))
+  name       String
+  users      UserAssociations[]
+}
+
+model User {
+  user_id    String             @id @default(dbgenerated("generate_object_id()"))
+  email      String             @unique
+  password   String
+  first_name String
+  last_name  String
+  accounts   UserAssociations[]
+}
+
+enum UserStatus {
+  INACTIVE
+  INVITED
+  ACTIVE
+}
+
+model UserAssociations {
+  user        User       @relation(fields: [user_id], references: [user_id])
+  user_id     String
+  account     Account    @relation(fields: [account_id], references: [account_id])
+  account_id  String
+  assigned_at DateTime   @default(now())
+  status      UserStatus @default(value: INVITED)
+
+  @@id([user_id, assigned_at])
+}

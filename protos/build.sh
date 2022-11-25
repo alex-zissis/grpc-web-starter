@@ -1,6 +1,7 @@
 OUT_DIR="./generated"
     
 find src/*.proto | xargs protoc \
+    --proto_path=src/ \
     --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" \
     --plugin="protoc-gen-grpc=${PROTOC_GEN_CSHARP_PATH}" \
     --csharp_out="${OUT_DIR}/csharp" \

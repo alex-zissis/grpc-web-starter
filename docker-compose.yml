@@ -1,13 +1,25 @@
 version: '3.9'
 
 services:
-  web:
-    build:
-      context: .
-      dockerfile: postle-backend/Dockerfile
+#  web:
+#    build:
+#      context: .
+#      dockerfile: postle-backend/Dockerfile
+#    depends_on:
+#      - db
   proxy:
     build: proxy
     environment:
       - PROXY_TARGET=web:5287
     ports:
       - "8080:8080"
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=postle
+      - POSTGRES_PASSWORD=postle
+    volumes:
+      - ./docker/data/pgsql:/var/lib/postgresql/data
+      - ./docker/startup/pgsql:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"

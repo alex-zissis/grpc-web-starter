@@ -1,15 +1,18 @@
 syntax = "proto3";
 option csharp_namespace = "ZicoDev.Protobuf";
+
 package dev.zico.protobuf;
 
-service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloReply);
+import "Identifiers.proto";
+
+service GreeterService {
+    rpc SayHello(SayHelloRequest) returns (SayHelloResponse);
 }
 
-message HelloRequest {
-  string name = 1;
+message SayHelloRequest {
+    string name = 1;
 }
 
-message HelloReply {
-  string message = 1;
+message SayHelloResponse {
+    string message = 1;
 }
